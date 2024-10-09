@@ -4,15 +4,17 @@ const app = express();
 const PORT = process.env.PORT || 3000; 
 const connectToDB = require ('./config/connectToDB') 
 connectToDB() 
-// //-------------------------------------------Routes
+const reminderController = require ('./controllers/reminderController') 
 
+// //-------------------------------------------Routes
+app.use(express.json())
 // app.get("/notifications", notificationsController.fetchnotifications);
 // // +++++++++++++ {READ} ++++++++++++++
 
 // app.get("/notifications/:id", notificationsController.fetchNotication);
 // // +++++++++++++ {READ} ++++++++++++++
 
-// app.post("/notifications", notificationsController.createNotification);
+app.post("/reminder", reminderController.createReminder);
 
 // // +++++++++++++ {CREATE} ++++++++++++++
 // app.put("/notifications/:id", notificationsController.updateNotification);

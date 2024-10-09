@@ -1,10 +1,13 @@
+// NotificationController.js
 const Notification = require('../models/Notification');
+
+// const Notification = require('../models/Notification');
 
 // Fetch all notifications
 const fetchNotifications = async (req, res) => {
-  try {
+    try {
     const notifications = await Notification.find();
-    res.json({ notifications });
+    res.json({notification:notifications });
   } catch (error) {
     res.status(500).json({ error: 'Error fetching notifications' });
   }
@@ -83,3 +86,24 @@ module.exports = {
   deleteNotification,
 };
  
+
+
+
+// // Send a notification
+// const sendNotification = async (req, res) => {
+//   // Code to send notification
+
+
+// // Get all notifications for a user
+// const getUserNotifications = async (req, res) => {
+//   // Code to fetch notifications for a user
+// };
+
+// // Mark a notification as read
+// const markNotificationRead = async (req, res) => {
+//   // Code to mark notification as read or dismissed
+// };
+
+// module.exports = { sendNotification, getUserNotifications, markNotificationRead };
+
+

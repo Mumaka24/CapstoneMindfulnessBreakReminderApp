@@ -20,22 +20,15 @@ const reminderSchema = new mongoose.Schema({
   },
   time: {
     type: Date,
-    required: true,  // Time at which the reminder is scheduled
+    // Time at which the reminder is scheduled
   },
   repeat: {
     type: String,
     enum: ['none', 'daily', 'weekly'],
     default: 'none',  // Repeat option for the reminder
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,  // When the reminder was created
-  },
-  updatedAt: {
-    type: Date,
-    default: Date.now,  // When the reminder was last updated
-  },
-});
+
+}, {timestamps:true});
 
 // Middleware to update the `updatedAt` field before each save
 reminderSchema.pre('save', function (next) {

@@ -97,3 +97,145 @@ Example Relationships:
 A User can have many Reminders.
 A Reminder can trigger multiple Notifications.
 A User can have many Sessions and Break Activities.
+
+User Controller
+Key Functions:
+
+Register User
+Create a new user with hashed password.
+Validate input (username, email, password).
+Login User
+Authenticate user by comparing the hashed password.
+Generate and return a JWT token for authentication.
+Get User Profile
+Fetch user details by their userId.
+Update User Profile
+Update user preferences or other fields (like email).
+Delete User
+Delete a user account and associated data (reminders, sessions).
+
+Functional Overview for Each Controller:
+Create (POST): Add new entries to your database (e.g., new users, reminders, sessions).
+Read (GET): Fetch data like all reminders, a specific user profile, or user sessions.
+Update (PUT/PATCH): Modify existing data, such as updating a reminder or user preferences.
+Delete (DELETE): Remove entries like reminders or user accounts.
+
+
+
+To implement functionality for your Mindfulness Break Reminder app in a MERN stack, you'll need to define controllers that handle various operations such as creating, updating, fetching, and deleting resources (e.g., users, reminders, sessions). Here's a breakdown of the basic controller functionalities you’ll need for each model:
+
+User Controller
+Key Functions:
+
+Register User
+Create a new user with hashed password.
+Validate input (username, email, password).
+Login User
+Authenticate user by comparing the hashed password.
+Generate and return a JWT token for authentication.
+Get User Profile
+Fetch user details by their userId.
+Update User Profile
+Update user preferences or other fields (like email).
+Delete User
+Delete a user account and associated data (reminders, sessions).
+js
+Copy code
+// UserController.js
+const User = require('../models/User');
+
+// Register a new user
+const registerUser = async (req, res) => {
+  // Code for creating a user and hashing the password
+};
+
+// Login user
+const loginUser = async (req, res) => {
+  // Code for user authentication
+};
+
+// Get user profile
+const getUserProfile = async (req, res) => {
+  // Code to get user by id
+};
+
+// Update user profile
+const updateUserProfile = async (req, res) => {
+  // Code to update user information
+};
+
+// Delete user
+const deleteUser = async (req, res) => {
+  // Code to delete user
+};
+
+module.exports = { registerUser, loginUser, getUserProfile, updateUserProfile, deleteUser };
+Reminder Controller
+Key Functions:
+
+Create Reminder
+
+Create a new reminder associated with a user.
+Validate reminder data (time, type, etc.).
+Get User Reminders
+
+Fetch all reminders for a specific user.
+Update Reminder
+
+Update a reminder’s time, type, message, or repetition.
+Delete Reminder
+
+Delete a specific reminder.
+
+
+
+Session Controller
+Key Functions:
+
+Start Session
+
+Create a new session when a user begins a mindfulness or break activity.
+End Session
+
+End a session by calculating session duration and setting the session end time.
+Get User Sessions
+
+Fetch all sessions for a user.
+Delete Session
+
+Delete a session (e.g., if it was created by mistake).
+
+
+User Controller
+Key Functions:
+
+Register User
+Create a new user with hashed password.
+Validate input (username, email, password).
+Login User
+Authenticate user by comparing the hashed password.
+Generate and return a JWT token for authentication.
+Get User Profile
+Fetch user details by their userId.
+Update User Profile
+Update user preferences or other fields (like email).
+Delete User
+Delete a user account and associated data (reminders, sessions).
+
+
+
+
+Notification Controller (Optional)
+Key Functions:
+
+Send Notification
+
+Send a notification to the user based on a reminder.
+Get User Notifications
+
+Fetch all notifications for a user.
+Mark Notification as Read
+
+Update the notification status to "read" or "dismissed."
+
+Establish Routes in server.js
