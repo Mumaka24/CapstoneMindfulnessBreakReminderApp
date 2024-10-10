@@ -1,33 +1,32 @@
-import { useEffect, useState }from 'react'
-import axios from 'axios'
-//axios>fetch()
-
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import './App.css';
+import Home from './pages/Home';
+import Sessions from './pages/Session';
+import Reminders from './components/Reminders';
+import Notifications from './pages/Notifications';
 
 function App() {
-  const [reminders ,setReminders] =useState([])
-  // Goal:Make request to Backend(localhost:3000/reminders) ---> save Reminders to state
-  
-  const fetchReminders = async() => {
-    // Make Request to DB
-    const response=await axios.get("http://localhost:3000/reminders")
-    console.log(response)
-    const info = await response.data 
-    await setReminders(info.reminders)
-  }
+  return (
+    <Router>
+      <div className="App">
+        {/* Navbar */}
+        <nav className="navbar">
+          <Link to="/">Home</Link>
+          <Link to="/sessions">Sessions</Link>
+          <Link to="/reminders">Reminders</Link>
+          <Link to="/notifications">Notifications</Link>
+        </nav>
 
-useEffect(()=>{
-  fetchReminders()
-},[])
-    fetch('')
-    axios('')
-
-
-    return (
-    <>
-      
-    </>
-  )
+        {/* Routes */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sessions" element={<Sessions />} />
+          <Route path="/reminders" element={<Reminders />} />
+          <Route path="/notifications" element={<Notifications />} />
+        </Routes>
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
