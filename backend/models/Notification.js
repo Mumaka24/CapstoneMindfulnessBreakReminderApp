@@ -5,14 +5,15 @@ const mongoose = require('mongoose');
 
 const notificationSchema = new mongoose.Schema({
     reminder: {
-        type: String
+        type: String,
+        required:true
     },
        body: String,
+       required: true
 
     });
 //     user: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: 'User',
+//         type: string
 //         required: true,
 //     },
 //     sentAt: {
@@ -22,5 +23,5 @@ const notificationSchema = new mongoose.Schema({
 // });
 
 // module.exports = mongoose.model('Notification', notificationSchema);
-const Note = mongoose.model("Notification", noteSchema);
+const Note = mongoose.model("Notification", notificationsSchema);
 module.exports = Notification;
